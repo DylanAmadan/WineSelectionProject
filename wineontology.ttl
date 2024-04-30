@@ -1,0 +1,90 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix wine: <http://example.org/wineontology#> .
+
+
+wine:Wine rdf:type owl:Class .
+wine:WineColour rdf:type owl:Class .
+wine:GrapeVariety rdf:type owl:Class .
+wine:Taste rdf:type owl:Class .
+wine:WineContinent rdf:type owl:Class .
+wine:PriceRange rdf:type owl:Class .
+
+wine:hasGrapeVariety rdf:type owl:ObjectProperty .
+wine:isLocatedIn rdf:type owl:ObjectProperty .
+wine:isATypeOf rdf:type owl:ObjectProperty .
+wine:hasTaste rdf:type owl:ObjectProperty .
+wine:hasPrice rdf:type owl:ObjectProperty .
+
+wine:Wine rdfs:subClassOf wine:WineColour .
+wine:WineColour rdfs:subClassOf wine:Taste .
+wine:WineColour rdfs:subClassOf wine:GrapeVariety .
+wine:GrapeVariety rdfs:subClassOf wine:WineContinent .
+wine:Taste rdfs:subClassOf wine:GrapeVariety .
+wine:Wine rdfs:subClassOf wine:PriceRange .
+
+wine:hasGrapeVariety rdfs:domain wine:Wine .
+wine:hasGrapeVariety rdfs:range wine:WineColour .
+wine:isLocatedIn rdfs:domain wine:Wine .
+wine:isLocatedIn rdfs:range wine:WineContinent .
+wine:isATypeOf rdfs:domain wine:Wine .
+wine:isATypeOf rdfs:range wine:WineColour .
+wine:hasTaste rdfs:domain wine:Wine .
+wine:hasTaste rdfs:range wine:Taste .
+wine:hasPrice rdfs:domain wine:Wine .
+wine:hasPrice rdfs:range wine:PriceRange .
+
+# Wine Types
+wine:RedWine rdf:type wine:WineColour ;
+    rdfs:label "Red Wine" .
+
+wine:WhiteWine rdf:type wine:WineColour ;
+    rdfs:label "White Wine" .
+
+wine:RoseWine rdf:type wine:WineColour ;
+    rdfs:label "Rosé Wine" .
+
+# Grape Varieties
+wine:Merlot rdf:type wine:GrapeVariety ;
+    rdfs:label "Merlot" .
+
+wine:CabernetSauvignon rdf:type wine:GrapeVariety ;
+    rdfs:label "Cabernet Sauvignon" .
+
+# Taste
+wine:Bold rdf:type wine:Taste ;
+    rdfs:label "Bold" .
+
+wine:Earthy rdf:type wine:Taste ;
+    rdfs:label "Earthy" .
+
+# Wine Continents
+wine:Africa rdf:type wine:WineContinent ;
+    rdfs:label "Africa" .
+
+wine:Asia rdf:type wine:WineContinent ;
+    rdfs:label "Asia" .
+
+# Price Ranges
+wine:PriceLow rdf:type wine:PriceRange ;
+    rdfs:label "<= 30" .
+
+wine:PriceMedium rdf:type wine:PriceRange ;
+    rdfs:label "< 50" .
+
+# Relationships
+wine:RedWine wine:isATypeOf wine:Wine.
+wine:RedWine wine:hasGrapeVariety wine:CabernetSauvignon .
+wine:RedWine wine:isLocatedIn wine:Europe .
+wine:RedWine wine:hasTaste wine:Bold .
+wine:RedWine wine:hasPrice wine:PriceMedium .
+
+wine:WhiteWine wine:isATypeOf wine:Wine.
+wine:WhiteWine wine:hasGrapeVariety wine:Chardonnay .
+wine:WhiteWine wine:isLocatedIn wine:Europe .
+wine:WhiteWine wine:hasTaste wine:Earthy .
+wine:WhiteWine wine:hasPrice wine:PriceLow .
+
+
+
