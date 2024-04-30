@@ -13,12 +13,10 @@ Advanced Search and Filtering: Allows users to navigate through the dataset base
 - Project Coordination: Managed project timelines and team collaboration, including setting up project management tools and defining roles.
 - Content Development: Authored significant portions of the project documentation, ensuring alignment with academic standards and project objectives.
 
-### Technologies
+### Technologies
 - Wix.com: Utilized for building and hosting the website.
 Python: Used for scripting data processing tasks, including data cleaning and machine learning model training.
 - Machine Learning: Implemented a decision tree algorithm to classify wine based on grape variety.
-Repository Structure
-
 
 
 
